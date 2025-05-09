@@ -27,7 +27,7 @@ async function getContract() {
 }
 
 document.getElementById("checkTime").addEventListener("click", async () => {
-  const lock = await getContrac();
+  const lock = await getContract();
   if (!lock) return;
 
   const unlockTime = await lock.unlockTime();
