@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lock Contract</title>
-  <script defer src="main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
+  <!-- Coinbase Wallet SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk/dist/CoinbaseWalletSDK.umd.min.js"></script>
+
+  <!-- ethers.js -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+
+  <!-- Tailwind CSS (optional styling) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- main.js script, load deferred -->
+  <script defer src="main.js"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
   <div class="bg-white p-8 rounded shadow w-full max-w-md">
@@ -16,7 +23,7 @@
     
     <div class="mb-4">
       <label class="block text-gray-700 mb-1">Contract Address</label>
-      <input id="contractAddress" type="text" value="0x5FbDB2315678afecb367f032d93F642f64180aa3" class="w-full border p-2 rounded" readonly>
+      <input id="contractAddress" type="text" class="w-full border p-2 rounded" readonly>
     </div>
 
     <button id="checkTime" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full mb-3">
