@@ -9,13 +9,11 @@
   <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk/dist/CoinbaseWalletSDK.umd.min.js"></script>
 
   <!-- ethers.js -->
-  <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.11.1/dist/ethers.umd.min.js"></script>
 
-  <!-- Tailwind CSS (optional styling) -->
+  <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 
-  <!-- main.js script, load deferred -->
-  <script defer src="main.js"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
   <div class="bg-white p-8 rounded shadow w-full max-w-md">
@@ -36,5 +34,8 @@
 
     <p id="status" class="mt-4 text-center text-sm text-gray-700"></p>
   </div>
+
+  <!-- main.js -->
+  <script src="main.js"></script>
 </body>
 </html>
