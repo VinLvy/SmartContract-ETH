@@ -5,7 +5,7 @@ import "hardhat/console.sol";
 
 contract Lock {
     uint public unlockTime;
-    address payable public owner;
+    address payable public owner; // Tetap simpan owner sebagai informasi
 
     event Withdrawal(uint amount, uint when);
 
@@ -16,18 +16,18 @@ contract Lock {
         );
 
         unlockTime = _unlockTime;
-        owner = payable(msg.sender);
+        owner = payable(msg.sender); // Owner tetap diatur saat deploy
     }
 
     function withdraw() public {
-        // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
-        // console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
-
         require(block.timestamp >= unlockTime, "You can't withdraw yet");
-        require(msg.sender == owner, "You aren't the owner");
+        // !!! PENTING: PASTIKAN BARIS INI TIDAK ADA ATAU DIKOMENTARI !!!
+        // require(msg.sender == owner, "You aren't the owner");
 
         emit Withdrawal(address(this).balance, block.timestamp);
 
-        owner.transfer(address(this).balance);
+        // Ganti ini agar dana dikirim ke siapa pun yang memanggil
+        // Jika Anda ingin owner asli yang menerima, biarkan owner.transfer
+        payable(msg.sender).transfer(address(this).balance);
     }
 }

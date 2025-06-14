@@ -1,5 +1,6 @@
 const hre = require("hardhat");
 const fs = require("fs");
+const path = require("path");
 
 async function main() {
   const unlockTime = Math.floor(Date.now() / 1000) + 60;
@@ -13,15 +14,15 @@ async function main() {
 
   console.log(`Lock deployed to: ${lock.target}`);
 
-  // Simpan alamat kontrak ke file JSON
+  // Simpan alamat kontrak ke folder frontend
   const addressData = {
     lockAddress: lock.target,
   };
 
-  fs.writeFileSync(
-    "contractAddress.json",
-    JSON.stringify(addressData, null, 2)
-  );
+  const outputPath = path.join(__dirname, "..", "frontend", "contractAddress.json");
+
+  fs.writeFileSync(outputPath, JSON.stringify(addressData, null, 2));
+  console.log(`✅ contractAddress.json saved to: ${outputPath}`);
 }
 
 main().catch((error) => {
