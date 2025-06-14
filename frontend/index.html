@@ -1,41 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lock Contract</title>
+  <title>Lock Contract DApp</title>
 
   <!-- Coinbase Wallet SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk/dist/CoinbaseWalletSDK.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk@3.8.0/dist/CoinbaseWalletSDK.umd.min.js"></script>
 
-  <!-- ethers.js -->
+  <!-- Ethers.js -->
   <script src="https://cdn.jsdelivr.net/npm/ethers@6.11.1/dist/ethers.umd.min.js"></script>
 
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 
+  <style>
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5); /* Indigo-500 */
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="bg-white p-8 rounded shadow w-full max-w-md">
-    <h1 class="text-2xl font-bold mb-4 text-center">Smart Contract Lock</h1>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen p-4 transition-colors duration-300">
+
+  <div class="bg-gray-800 p-8 rounded-xl shadow-2xl w-full max-w-md border border-gray-700 transition-colors duration-300">
     
-    <div class="mb-4">
-      <label class="block text-gray-700 mb-1">Contract Address</label>
-      <input id="contractAddress" type="text" class="w-full border p-2 rounded" readonly>
+    <h1 class="text-3xl font-extrabold text-center mb-6">Lock Contract DApp</h1>
+
+    <div class="mb-5">
+      <label for="contractAddress" class="block text-sm font-medium mb-1">Contract Address</label>
+      <input id="contractAddress" type="text" class="w-full bg-gray-700 border border-gray-600 px-4 py-2 rounded-md text-sm cursor-text focus:border-indigo-500 focus:ring-indigo-500" readonly>
     </div>
 
-    <button id="checkTime" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full mb-3">
+    <button id="checkTime" class="bg-indigo-600 text-white font-semibold py-3 px-6 rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full mb-3 transition-all duration-200">
       Check Unlock Time
     </button>
 
-    <button id="withdrawBtn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full">
+    <button id="withdrawBtn" class="bg-green-600 text-white font-semibold py-3 px-6 rounded-xl hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 w-full transition-all duration-200">
       Withdraw
     </button>
 
-    <p id="status" class="mt-4 text-center text-sm text-gray-700"></p>
+    <p id="status" class="mt-6 text-center text-sm text-gray-400 font-medium"></p>
   </div>
 
-  <!-- main.js -->
   <script src="main.js"></script>
 </body>
 </html>
